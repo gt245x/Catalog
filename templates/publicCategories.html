@@ -1,0 +1,75 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="row top-menu">
+        <div class="col-md-10"></div>
+        <div class="col-md-2 text-right"></div>
+    </div>
+
+    <div class="row row-margin">
+        <div class="col-md-12"></div>
+    </div>
+
+    <div class="row divider blue">
+        <div class="col-md-12"></div>
+    </div>
+
+    <div class="row banner main">
+        <div class="col-md-1"></div>
+        <div class="col-md-11 text-left padding-none">
+            <h1 class="main-title">Catalog App</h1>
+        </div>
+    </div>
+
+    <div class="flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li><b>{{message}}</b></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="row padding-top padding-bottom">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 padding-none"></div>
+        <div class="col-md-1"></div>
+    </div>
+
+        <div class="row sub-main">
+            <div class="col-md-5">
+                <h2>Categories</h2>
+                {% for category in categories %}
+                <a href="{{url_for('showCategory', category_id = category.id,)}}">
+                <div class="category-list">
+                <h3>{{category.name}}</h3>
+                </div>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="col-md-7">
+                <h2>Latest Items</h2>
+                {% for item in items %}
+                <a href="{{url_for('showItem', category_id = item.category_id, item_id = item.id)}}">
+                <div class="item-list">
+                <h3>{{item.name}}<span class="item-list-category"> ({{item.category.name}})</span></h3>
+                </div>
+                </a>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+{% endblock %}

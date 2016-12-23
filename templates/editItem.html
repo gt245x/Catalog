@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+    <div class="row divider green">
+        <div class="col-md-12"></div>
+    </div>
+    <div class="row banner menu">
+        <div class="col-md-11 col-md-offset-1 padding-none">
+            <h1>Edit {{item.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1 padding-top">
+            <form action="{{url_for('editItem', category_id = category_id, item_id = item_id)}}" method = "post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type ="text" maxlength="100" class="form-control" name="name" value="{{item.name }}">
+
+                    <label for="picture">Picture:</label>
+                    <textarea class="form-control" maxlength="250" rows="3" name="picture">
+                    {{item.picture}}</textarea>
+
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" maxlength="250" rows="3" name="description">{{item.description}}</textarea>
+
+                    <label for="price">Price:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input type ="text" maxlength="10" class="form-control" name="price" value="{{item.price}}">
+                    </div>
+
+                    <label for="category">Category:</label>
+                    <select name="category_id"> {% for category in categories %}
+                        <option value={{category.id}} {% if item.category.name == category.name %} selected {%endif%}>
+                        {{category.name}}
+                        </option> {% endfor %}
+                    </select>>
+                    <br>
+
+                    <button type="submit" class="btn btn-info" id="submit" type="submit">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+                    <br>
+                    <div class="error">{{error}}</div>
+
+                </div>
+            </form>
+
+                    <a href = "{{url_for('showItem', category_id = category_id, item_id = item_id)}}">
+                        <button class="btn btn-info delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+                    </a>
+
+        </div>
+    </div>
+{% endblock %}

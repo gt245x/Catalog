@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+    <div class="row divider green">
+        <div class="col-md-12"></div>
+    </div>
+    <div class="row banner menu">
+        <div class="col-md-11 col-md-offset-1 padding-none">
+            <h1>New Category Item</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1 padding-top">
+            <form action="{{ url_for('newCategoryItem', category_id = category_id)}}" method = "post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type ="text" maxlength="50" class="form-control" name="name" placeholder="Name of the item">
+
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the item"></textarea>
+
+                    <label for="picture">Picture:</label>
+                        <input type ="text" class="form-control" maxlength="250" name="picture" placeholder="Http link of the picture of the item">
+
+                    <label for="price">Price:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input type ="text" class="form-control" maxlength="10" name="price" placeholder="Price in $">
+                    </div>
+
+                    <button type="submit" class="btn btn-info" id="submit" type="submit">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Create</button>
+                </div>
+                <div class="error">{{error}}</div>
+                <br>
+            </form>
+            <a href = "{{url_for('showCategory', category_id = category_id)}}">
+                        <button class="btn btn-info delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+            </a>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+    <div class="row divider green">
+        <div class="col-md-12"></div>
+    </div>
+
+    <div class="row banner menu">
+        <div class="col-md-11 col-md-offset-1 padding-none">
+            <h1>{{category.name}}</h1>
+        </div>
+    </div>
+
+    <div class="flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li><b>{{message}}</b></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+
+
+        <div class="row sub-main">
+            <div class="col-md-5">
+                <h2>Categories</h2>
+                {% for cat in categories %}
+                <a href="{{url_for('showCategory', category_id = cat.id)}}">
+                <div class="category-list">
+                <h3>{{cat.name}}</h3>
+                </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-7">
+                <h2>{{category.name}} Items ({{count}} items)</h2>
+                {% for item in items %}
+                <a href="{{url_for('showItem', category_id = category.id, item_id = item.id)}}">
+                <div class="item-list">
+                <h3>{{item.name}}</h3>
+                </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+
+
+
+
+{% endblock %}

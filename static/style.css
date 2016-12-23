@@ -1,0 +1,153 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+  }
+
+h1 {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    color: #000000;
+    line-height: 60px;
+    font-weight: 400;
+
+}
+
+
+h2 {
+    font-size: 24px;
+    color: #42C3C9;
+    line-height: 29px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #4A4A4A;
+    line-height: 23px;
+}
+
+
+ p {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #7B7573;
+    line-height: 24px;
+    font-weight: 400;
+ }
+
+.padding-top {
+    padding-top: 30px;
+}
+.padding-bottom {
+    padding-bottom: 30px;
+}
+
+.padding-none {
+    padding: 0;
+}
+
+.top-link{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.divider {
+    height: 15px;
+}
+
+.divider.blue {
+    background-color: #42C3C9;
+}
+
+.divider.green {
+    background-color: #9FB80A;
+}
+
+.banner.main {
+    height: 150px;
+    background: url("/static/maze.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner.menu {
+    height: 150px;
+    background-color: #e8a025;
+}
+
+ .category-list {
+    background-color: #F0F0F0;
+    padding: 20px;
+ }
+ .category-list:hover {
+    background-color: #e1e17f;
+    padding: 20px;
+}
+
+.item-list {
+     padding: 5px;
+}
+
+.item-list h3 {
+    color: #f48342;
+}
+
+ .item-list:hover {
+    padding: 5px;
+}
+
+.item-list-category {
+    color: #4A4A4A;
+    font-weight: 400;
+}
+
+.flash {
+    background-color: #98FB98;
+    width:100%;
+    text-decoration: none;
+
+}
+
+.flash li {
+    list-style-type: none;
+    text-align: center;
+
+}
+
+.pic img {
+    max-width: 300px;
+    max-height: 300px;
+}
+.row-margin {
+    height:2px;
+}
+
+.logout {
+    font-weight: 700;
+}
+/*double check that logout works*/
+
+.error {
+    color: red;
+}
+
+.cat-title {
+    padding-top: 15px;
+}
+
+.comments-user {
+    color: red;
+}
+
+textarea {
+  width: 500px;
+  height: 400px;
+  font-size: 17px;
+  font-family: monospace;
+}
+
+.main-title {
+    text-align: center;
+    color:  #ff0000;
+    font-weight: 700;
+}
